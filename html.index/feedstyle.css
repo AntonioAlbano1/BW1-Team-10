@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -61,18 +66,18 @@ form > label{
     font-size: 1.8rem;
     font-weight: 300;
 }
-form > textarea{
-    max-width: max-content;
+#feedback {
+    min-width: 750px;
     border: 0;
     background-color: transparent;
     border-bottom: 2px solid rgb(199, 19, 143);
     padding-top: 20px;
     margin-top: 15px;
+
 }
-form > textarea::placeholder{
+#feedback::placeholder{
     color: grey;
-    padding-left: 30px;
-    padding-top: 5px;
+    padding-left: 10px;
     font-size: 1rem;
 }
 
