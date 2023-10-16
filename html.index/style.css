@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap');
+
 body {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+    background-image: url(../Assets/bg.jpg); 
+    background-repeat: no-repeat;
+    background-size: cover;
+font-family: 'Outfit', sans-serif;
 }
 
 #onlyMain {
-    
+    width: 1000px;
+    margin-inline: auto;
+}
+
+
+/*h1 {
+    color: white;
+    font-weight: 300;
 }
