@@ -125,33 +125,54 @@ window.onload = function () {
     time--;
   }, 1000);
 
+let right = 0;
+let wrong = 0;
 
+const selected = (e) => {
+    e.currentTarget.classList.add("selected");
+    const answer = document.querySelector(".selected");
+    const a = answer.innerHTML;
+    for (let i = 0; i < questions.length; i++) {
+      const element = questions[i].correct_answer;
+      if (element === a) {
+        right++;
+        console.log(right);
+      } else{
+        wrong++;
+        console.log(wrong);
+      }
+      
+    }
 
-  const generaDom = () => {
+};
+const generaDom = () => {
     const main = document.getElementById("onlyMain");
     const div = document.createElement("div");
     div.classList.add("btn");
     for (let i = 0; i < questions.length; i++) {
-      const quest = document.createElement("h1");
-      quest.innerText = `${questions[i].question}`;
-      div.appendChild(quest);
-      for (let j = 0; j < questions[i].incorrect_answers.length; j++) {
-        const button = document.createElement("button");
-        button.classList.add("butt");
-        button.type = "button";
-        button.innerText = `${questions[i].incorrect_answers[j]}`;
-        div.appendChild(button);
-      }
-      const counter = document.createElement("p");
-      counter.innerText = `question ${i}/${questions.length}`;
-      counter.classList.add("numbers");
-      div.appendChild(counter);
+        const quest = document.createElement("h1");
+        quest.innerText = `${questions[i].question}`;
+        div.appendChild(quest);
+        for (let j = 0; j < questions[i].incorrect_answers.length; j++) {
+            const button = document.createElement("button");
+            button.classList.add("butt");
+            button.type = "button";
+            button.innerText = `${questions[i].incorrect_answers[j]}`;
+            div.appendChild(button);
+            button.onclick = ("click",selected)
+        }
+        const counter = document.createElement("p");
+        counter.innerText = `question ${i}/${questions.length}`;
+        counter.classList.add("numbers");
+        div.appendChild(counter);
+        
     }
-
+    
     main.appendChild(div);
-  };
-  generaDom();
+   
+};
+generaDom();
 
 
-  
+
 };

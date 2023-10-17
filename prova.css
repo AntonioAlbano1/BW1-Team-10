@@ -77,3 +77,7 @@ footer span{
     color: white;
     text-align: end;
 }
+
+.selected{
+    background-color: #BE008C;
+}
