@@ -54,11 +54,6 @@ h2 {
     padding-left: 25px;
 }
 
-.checkbox {
-    
-    
-}
-
 #downDiv {
     display: inline;
 }
@@ -90,4 +85,11 @@ h2 {
     margin-left: 300px;
    
     
+}
+.checkButton {
+    height: 15px;
+    background-color: transparent;
+    border-color: white;
+    cursor: pointer;
+    margin-right: 10px;
 }
