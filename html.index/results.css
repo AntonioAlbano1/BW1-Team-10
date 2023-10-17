@@ -24,13 +24,6 @@ body {
   padding-top: 50px;
 }
 
-/* MAIN */
-
-#onlyMain {
-  width: 1000px;
-  margin-inline: auto;
-  text-align: center;
-}
 
 #title > h3 {
   color: white;
