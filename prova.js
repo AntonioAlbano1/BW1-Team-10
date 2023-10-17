@@ -107,22 +107,40 @@ window.onload = function () {
   // Mostra la prima domanda con il testo e i radio button.
   // Quando l'utente seleziona una risposta, passa alla domanda successiva dell'array e sostituisci quella precedentemente visualizzata con quella corrente,
   // salvando le risposte dell'utente in una variabile
-  const dom = [];
+
   for (let i = 0; i < questions.length; i++) {
     const element = questions[i].correct_answer;
     questions[i].incorrect_answers.push(element);
   }
   console.log(questions[0].incorrect_answers);
+
   const generaDom = () => {
-    const main = document.getElementById("onlyMain");
-    const div = document.createElement("div");
-    div.classList.add("btn");
-    const button = document.createElement("button");
-    button.classList.add("butt");
-    button.type = "button";
-    button.innerText = `${questions[0].incorrect_answers[0]}`;
-    div.appendChild(button);
-    console.log(button);
+      const main = document.getElementById("onlyMain");
+      const div = document.createElement("div");
+      div.classList.add("btn");
+      const timer = document.createElement("p")
+      timer.innerText = "600"
+      timer.classList.add("color");
+      div.appendChild(timer);
+      setInterval(() => {
+          timer.innerText = timer.innerText-1;
+    }, 1000);
+    for (let i = 0; i < questions.length; i++) {
+      const quest = document.createElement("h1");
+      quest.innerText = `${questions[i].question}`;
+      div.appendChild(quest);
+      for (let j = 0; j < questions[i].incorrect_answers.length; j++) {
+        const button = document.createElement("button");
+        button.classList.add("butt");
+        button.type = "button";
+        button.innerText = `${questions[i].incorrect_answers[j]}`;
+        div.appendChild(button);
+      }
+      const counter = document.createElement("p");
+      counter.innerText = `question ${i}/${questions.length}`;
+      counter.classList.add("numbers");
+      div.appendChild(counter);
+    }
 
     main.appendChild(div);
   };
