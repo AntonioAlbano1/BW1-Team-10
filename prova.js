@@ -109,17 +109,16 @@ window.onload = function () {
   // salvando le risposte dell'utente in una variabile
   const dom = [];
   for (let i = 0; i < questions.length; i++) {
-    const element = questions[i].correct_answer;
-    questions[i].incorrect_answers.push(element);
+    const element = questions[i].question;
+    console.log(element)
   }
-  console.log(questions[0].incorrect_answers);
   const generaDom = () => {
     const main = document.getElementById("onlyMain");
     const div = document.createElement("div");
     div.classList.add("btn");
-    const button = document.createElement("button");
+    const button = document.createElement("radio button");
     button.classList.add("butt");
-    button.type = "button";
+    button.type = "radio button";
     button.innerText = `${questions[0].incorrect_answers[0]}`;
     div.appendChild(button);
     console.log(button);
