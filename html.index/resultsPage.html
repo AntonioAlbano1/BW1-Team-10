@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./results.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./results.css" />
     <title>Results Page</title>
-</head>
-<body>
+  </head>
+  <body>
+      <header id="onlyHeader">
+        <img class="img" src="../Assets/epicode_logo.png" alt="logoEpicode" />
+      </header>
     <main id="onlyMain">
-        <header id="onlyHeader">
-            <img class="img" src="../Assets/epicode_logo.png" alt="logoEpicode">
-        </header>
-        <div id="title">
-            <h3>Results</h3>
-            <p class="sottotitolo">The summary of your answers:</p>
-        </div>
-            <div id="grafico">
+      <div id="title">
+        <h3>Results</h3>
+        <p class="sottotitolo">The summary of your answers:</p>
+      </div>
+      <div id="grafico">
         <div class="results">
-            <p>Correct</p>
-            <p>66.7%</p>
-            <p>4/6 questions</p>
+          <h3>Correct</h3>
+          <h3>66.7%</h3>
+          <p>4/6 questions</p>
         </div>
-        <div class="results"></div>
-        <div class="results"></div>
+        <div class="results">
+            <div class="skill">
+                <div class="outer">
+                    <div class="inner">
+                        <div class="content">
+                            <h5>Congratulations!</h5>
+                            <h5 id="colored">You passed the exam.</h5>
+                            <p>
+                              We'll send you the certificate in few minutes. Check your email
+                              (including promotions / spam folder)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-            
-            <footer>
-            
-        </footer>
-        
-        
-        
-            </main>
-</body>
+        <div class="results">
+            <h3>Wrong</h3>
+            <h3>33.3%</h3>
+            <p>2/6 questions</p>
+        </div>
+      </div>
+      <form>
+        <button type="submit">RATE US</button>
+      </form>
+    </main>
+  </body>
 </html>
