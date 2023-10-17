@@ -68,16 +68,30 @@ h2 {
    
 }
 
-.lastButton { 
+#lastButton:disabled { 
     margin-inline: auto;
     border: none;
     padding: 15px 50px;
-    background-color: #00ffff;
-    box-shadow: -1px -1px 40px -5px #00FFFF;
+    background-color: grey;
+    box-shadow: -1px -1px 40px -5px grey; 
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     display: inline;
+}
+#lastButton { 
+    margin-inline: auto;
+    border: none;
+    padding: 15px 50px;
+    background-color: #00ffff;
+    box-shadow: -1px -1px 40px -5px #00FFFF; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline;
+}
+form > .buttonDiv > a{
+    text-decoration: none;
 }
 
 .buttonDiv {
