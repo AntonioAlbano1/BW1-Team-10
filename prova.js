@@ -114,17 +114,23 @@ window.onload = function () {
   }
   console.log(questions[0].incorrect_answers);
 
+  const timer = document.querySelector("#timer");
+  const starting = 25;
+  let time = starting * 60;
+  timer.classList.add("color");
+  setInterval(() => {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    timer.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+  }, 1000);
+
+
+
   const generaDom = () => {
-      const main = document.getElementById("onlyMain");
-      const div = document.createElement("div");
-      div.classList.add("btn");
-      const timer = document.createElement("p")
-      timer.innerText = "600"
-      timer.classList.add("color");
-      div.appendChild(timer);
-      setInterval(() => {
-          timer.innerText = timer.innerText-1;
-    }, 1000);
+    const main = document.getElementById("onlyMain");
+    const div = document.createElement("div");
+    div.classList.add("btn");
     for (let i = 0; i < questions.length; i++) {
       const quest = document.createElement("h1");
       quest.innerText = `${questions[i].question}`;
@@ -145,4 +151,7 @@ window.onload = function () {
     main.appendChild(div);
   };
   generaDom();
+
+
+  
 };
