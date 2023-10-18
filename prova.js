@@ -118,18 +118,18 @@ window.onload = function () {
   const starting = 1;
   let time = starting * 60;
   timer.classList.add("color");
-  const couwntdown = () => {
-    const tempo = setInterval(() => {
-      const minutes = Math.floor(time / 60);
-      let seconds = time % 60;
-      timer.innerHTML = `${minutes}: ${seconds}`;
-      time--;
-      if (minutes === 0 && seconds === 0) {
-        clearInterval(tempo);
-        changeByTimer();
-      }
-    }, 1000);
-  };
+
+  
+  const tempo = setInterval(() => {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    timer.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+    if (minutes === 0 && seconds === 0) {
+      clearInterval(tempo);
+      changeByTimer();
+    }
+  }, 1000);
 
   const changeByTimer = () => {
     const currentDiv = document.querySelectorAll("div");
@@ -145,9 +145,10 @@ window.onload = function () {
       currentQuestion[y].style.display = "none";
     }
     y++;
+    clearInterval(tempo);
     if (y < questions.length) {
       generaDom();
-      couwntdown();
+      tempo();
     } else {
       window.location.href = "./results.html";
     }
@@ -174,6 +175,7 @@ window.onload = function () {
       wrong++;
       console.log("sbagliata", wrong);
     }
+
     change();
   };
 
@@ -200,7 +202,6 @@ window.onload = function () {
 
     main.appendChild(div);
 
-    couwntdown();
   };
   generaDom();
 };
