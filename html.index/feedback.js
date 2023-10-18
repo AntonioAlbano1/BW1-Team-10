@@ -1,4 +1,4 @@
-window.onload = () => {
+/*window.onload = () => {
   const feed = () => {
     const oldStar = document.querySelectorAll("svg");
     for (let i = 0; i < 10; i++) {
@@ -42,4 +42,13 @@ window.onload = () => {
   }
 
   generaStar();
-};
+}; */
+
+
+const stars = document.querySelectorAll ("li")
+
+stars.forEach((star , i) => {
+  star.addEventListener("click" , () => {
+    console.log(i)
+  })
+})
