@@ -113,7 +113,40 @@ window.onload = function () {
     questions[i].incorrect_answers.push(element);
   }
   console.log(questions[0].incorrect_answers);
-  const generaDom = () => {
+
+  const timer = document.querySelector("#timer");
+  const starting = 25;
+  let time = starting * 60;
+  timer.classList.add("color");
+  setInterval(() => {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    timer.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+  }, 1000);
+
+let right = 0;
+let wrong = 0;
+const y = 0;
+
+const selected = (e) => {
+    e.currentTarget.classList.add("selected");
+    const answer = document.querySelector(".selected");
+    const a = answer.innerHTML;
+    for (let i = 0; i < questions.length; i++) {
+      const element = questions[i].correct_answer;
+      if (element === a) {
+        right++;
+        console.log(right);
+      } else{
+        wrong++;
+        console.log(wrong);
+      }
+      
+    }
+
+};
+const generaDom = () => {
     const main = document.getElementById("onlyMain");
     const div = document.createElement("div");
     div.classList.add("btn");
