@@ -127,6 +127,7 @@ window.onload = function () {
 
 let right = 0;
 let wrong = 0;
+const y = 0;
 
 const selected = (e) => {
     e.currentTarget.classList.add("selected");
