@@ -114,11 +114,11 @@ window.onload = function () {
   }
   console.log(questions[0].incorrect_answers);
 
+  const timer = document.querySelector("#timer");
+  const starting = 1;
+  let time = starting * 60;
+  timer.classList.add("color");
   const couwntdown = () => {
-    const timer = document.querySelector("#timer");
-    const starting = 1;
-    let time = starting * 60;
-    timer.classList.add("color");
     const tempo = setInterval(() => {
       const minutes = Math.floor(time / 60);
       let seconds = time % 60;
@@ -131,7 +131,27 @@ window.onload = function () {
     }, 1000);
   };
 
-  
+  const changeByTimer = () => {
+    const currentDiv = document.querySelectorAll("div");
+    currentDiv[y].classList.add("active");
+    console.log(currentDiv);
+    change();
+  };
+
+  const change = () => {
+    const currentQuestion = document.getElementsByClassName("active");
+    console.log(currentQuestion[y]);
+    if (y !== questions[y]) {
+      currentQuestion[y].style.display = "none";
+    }
+    y++;
+    if (y < questions.length) {
+      generaDom();
+      couwntdown();
+    } else {
+      window.location.href = "./results.html";
+    }
+  };
 
   let right = 0;
   let wrong = 0;
@@ -154,17 +174,7 @@ window.onload = function () {
       wrong++;
       console.log("sbagliata", wrong);
     }
-    const currentQuestion = document.getElementsByClassName("active");
-    console.log(currentQuestion[y]);
-    if (y !== questions[y]) {
-      currentQuestion[y].style.display = "none";
-    }
-    y++;
-    if (y < questions.length) {
-      generaDom();
-    } else {
-      window.location.href = "./results.html";
-    }
+    change();
   };
 
   const generaDom = () => {
@@ -172,46 +182,25 @@ window.onload = function () {
     const div = document.createElement("div");
     div.classList.add("btn");
     const quest = document.createElement("h1");
-    quest.innerText = `${questions[y].question}`;
+    quest.innerHTML = `${questions[y].question}`;
     div.appendChild(quest);
     for (let j = 0; j < questions[y].incorrect_answers.length; j++) {
       const button = document.createElement("button");
       button.classList.add("butt");
       button.type = "submit";
-      button.innerText = `${questions[y].incorrect_answers[j]}`;
+      button.innerHTML = `${questions[y].incorrect_answers[j]}`;
       div.appendChild(button);
       button.addEventListener("click", selected);
     }
     const counter = document.createElement("p");
-    counter.innerText = `question ${y + 1}/${questions.length}`;
+    counter.innerHTML = `question ${y + 1}/${questions.length}`;
     counter.classList.add("numbers");
 
     div.appendChild(counter);
-    
 
     main.appendChild(div);
 
     couwntdown();
   };
   generaDom();
-
-
-
-  const changeByTimer =()=>{
-    const currentDiv = document.querySelectorAll("div")
-    currentDiv[y].classList.add("active");
-    console.log(currentDiv);
-    const currentQuestion = document.getElementsByClassName("active");
-    console.log(currentQuestion[y]);
-    console.log(currentQuestion);
-    if (y !== questions[y]) {
-      currentQuestion[y].style.display = "none";
-    }
-    y++;
-    if (y < questions.length) {
-      generaDom();
-    } else {
-      window.location.href = "./results.html";
-    }
-  }
 };
