@@ -115,49 +115,92 @@ window.onload = function () {
   console.log(questions[0].incorrect_answers);
 
   const timer = document.querySelector("#timer");
-  const starting = 25;
+  const starting = 1;
   let time = starting * 60;
   timer.classList.add("color");
-  setInterval(() => {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    timer.innerHTML = `${minutes}: ${seconds}`;
-    time--;
-  }, 1000);
-
-let right = 0;
-let wrong = 0;
-const y = 0;
-
-const selected = (e) => {
-    e.currentTarget.classList.add("selected");
-    const answer = document.querySelector(".selected");
-    const a = answer.innerHTML;
-    for (let i = 0; i < questions.length; i++) {
-      const element = questions[i].correct_answer;
-      if (element === a) {
-        right++;
-        console.log(right);
-      } else{
-        wrong++;
-        console.log(wrong);
+  const couwntdown = () => {
+    const tempo = setInterval(() => {
+      const minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+      timer.innerHTML = `${minutes}: ${seconds}`;
+      time--;
+      if (minutes === 0 && seconds === 0) {
+        clearInterval(tempo);
+        changeByTimer();
       }
-      
-    }
+    }, 1000);
+  };
 
-};
-const generaDom = () => {
+  const changeByTimer = () => {
+    const currentDiv = document.querySelectorAll("div");
+    currentDiv[y].classList.add("active");
+    console.log(currentDiv);
+    change();
+  };
+
+  const change = () => {
+    const currentQuestion = document.getElementsByClassName("active");
+    console.log(currentQuestion[y]);
+    if (y !== questions[y]) {
+      currentQuestion[y].style.display = "none";
+    }
+    y++;
+    if (y < questions.length) {
+      generaDom();
+      couwntdown();
+    } else {
+      window.location.href = "./results.html";
+    }
+  };
+
+  let right = 0;
+  let wrong = 0;
+  let y = 0;
+
+  const selected = (e) => {
+    e.preventDefault();
+    e.currentTarget.classList.add("selected");
+    e.currentTarget.parentNode.classList.add("active");
+    const answer = document.querySelectorAll(".selected");
+    console.log(answer);
+    const a = answer[y].innerHTML;
+    console.log(y);
+    const element = questions[y].correct_answer;
+    console.log(a);
+    if (element === a) {
+      right++;
+      console.log("giusta", right);
+    } else {
+      wrong++;
+      console.log("sbagliata", wrong);
+    }
+    change();
+  };
+
+  const generaDom = () => {
     const main = document.getElementById("onlyMain");
     const div = document.createElement("div");
     div.classList.add("btn");
-    const button = document.createElement("button");
-    button.classList.add("butt");
-    button.type = "button";
-    button.innerText = `${questions[0].incorrect_answers[0]}`;
-    div.appendChild(button);
-    console.log(button);
+    const quest = document.createElement("h1");
+    quest.innerHTML = `${questions[y].question}`;
+    div.appendChild(quest);
+    for (let j = 0; j < questions[y].incorrect_answers.length; j++) {
+      const button = document.createElement("button");
+      button.classList.add("butt");
+      button.type = "submit";
+      button.innerHTML = `${questions[y].incorrect_answers[j]}`;
+      div.appendChild(button);
+      button.addEventListener("click", selected);
+    }
+    const counter = document.createElement("p");
+    counter.innerHTML = `question ${y + 1}/${questions.length}`;
+    counter.classList.add("numbers");
+
+    div.appendChild(counter);
 
     main.appendChild(div);
+
+    couwntdown();
   };
   generaDom();
 };
