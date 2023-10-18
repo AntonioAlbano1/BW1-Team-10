@@ -29,8 +29,7 @@ body {
   color: white;
   font-weight: 600;
   text-align: center;
-  padding-top: 80px;
-  font-size: 2rem;
+  font-size: 3rem;
   margin: 0;
 }
 
@@ -39,6 +38,7 @@ body {
   color: white;
   font-weight: 300;
   margin: 0;
+  font-size: 1.5rem;
 }
 
 .skill {
@@ -61,12 +61,21 @@ body {
   border: 1px solid #00ffff;
 }
 .content {
-  padding-top: 20px;
+  padding-top: 50px;
+}
+
+.content h5 {
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 /* INFO RESULTS */
 #grafico {
-  margin-top: 50px;
+  text-align: center;
+}
+
+#colored {
+  color: #00F8F9;
 }
 
 .results {
@@ -74,12 +83,45 @@ body {
   width: 33%;
   margin-bottom: 50px;
   margin-top: 50px;
+  padding-left: 30px;
+}
+.results p {
+  margin: 0;
+  opacity: 0.6;
+}
+.congrP {
+  padding-top: 10px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 0.7;
+}
+
+h3 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  line-height: 0.7;
+  opacity: 0.6;
+}
+
+form {
+  text-align: center;
+  margin-top: 50px;
 }
 
 /* BUTTON */
 form > button {
   border: none;
-  border: 2px solid white;
+  border: 3px solid white;
   padding: 20px 60px;
   background-color: transparent;
   font-size: 1.2rem;
