@@ -97,3 +97,6 @@ form > button {
   cursor: pointer;
 }
 
+.list.active {
+  color: #00ffff;
+}
