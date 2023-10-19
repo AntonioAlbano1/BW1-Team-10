@@ -5,5 +5,5 @@ check.addEventListener("change", function(){
     button.disabled = !check.checked;
 });
 button.addEventListener("click", function(){
-window.location.href = "./benchmark.html";
+window.location.href = "../prova.html";
 });
