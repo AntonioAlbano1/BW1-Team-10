@@ -107,37 +107,44 @@ window.onload = function () {
   // Mostra la prima domanda con il testo e i radio button.
   // Quando l'utente seleziona una risposta, passa alla domanda successiva dell'array e sostituisci quella precedentemente visualizzata con quella corrente,
   // salvando le risposte dell'utente in una variabile
-  const dom = [];
   for (let i = 0; i < questions.length; i++) {
     const element = questions[i].correct_answer;
     questions[i].incorrect_answers.push(element);
+    const shuffle = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    };
+    const shuffledArr = shuffle(questions[i].incorrect_answers);
+    console.log(shuffledArr);
+    
   }
-  console.log(questions[0].incorrect_answers);
-
-  const timer = document.querySelector("#timer");
-  const starting = 1;
-  let time = starting * 60;
-  timer.classList.add("color");
-
   
-  const tempo = setInterval(() => {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
-    timer.innerHTML = `${minutes}: ${seconds}`;
-    time--;
-    if (minutes === 0 && seconds === 0) {
-      clearInterval(tempo);
+  const timer = document.querySelector("#timer");
+  let times = 60;
+  timer.classList.add("color");
+  
+  let time;
+  function tempo() {
+    time = setInterval(tempo, 1000);
+    let seconds = times * 1;
+    timer.innerHTML = ` ${seconds}`;
+    times--;
+    if (seconds === 0) {
       changeByTimer();
+      clearInterval(time);
     }
-  }, 1000);
-
-  const changeByTimer = () => {
-    const currentDiv = document.querySelectorAll("div");
-    currentDiv[y].classList.add("active");
-    console.log(currentDiv);
-    change();
-  };
-
+  }
+  
+  // const changeByTimer = () => {
+  //   const currentDiv = document.querySelectorAll("div");
+  //   currentDiv[y].classList.add("active");
+  //   console.log(currentDiv);
+  //   change();
+  // };
+  
   const change = () => {
     const currentQuestion = document.getElementsByClassName("active");
     console.log(currentQuestion[y]);
@@ -145,19 +152,18 @@ window.onload = function () {
       currentQuestion[y].style.display = "none";
     }
     y++;
-    clearInterval(tempo);
     if (y < questions.length) {
       generaDom();
       tempo();
     } else {
-      window.location.href = "./results.html";
+      window.location.href = "../html.index/resultsPage.html";
     }
   };
-
+  
   let right = 0;
   let wrong = 0;
   let y = 0;
-
+  
   const selected = (e) => {
     e.preventDefault();
     e.currentTarget.classList.add("selected");
@@ -194,14 +200,17 @@ window.onload = function () {
       div.appendChild(button);
       button.addEventListener("click", selected);
     }
-    const counter = document.createElement("p");
-    counter.innerHTML = `question ${y + 1}/${questions.length}`;
+    const counter = document.createElement("span");
+    const span = document.createElement("span");
+    counter.innerHTML = `question ${y + 1}`;
+    span.innerHTML = `/${questions.length}`;
     counter.classList.add("numbers");
 
     div.appendChild(counter);
-
+    div.appendChild(span)
+    
+    
     main.appendChild(div);
-
   };
   generaDom();
 };

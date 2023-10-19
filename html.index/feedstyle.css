@@ -94,6 +94,11 @@ form > button {
 .list {
   display: inline-block;
   padding: 5px;
+  filter: brightness(0%);
   cursor: pointer;
 }
 
+.list.active {
+  color: #00ffff;
+  filter: brightness(100%);
+}
