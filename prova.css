@@ -129,3 +129,95 @@ span{
 .selected{
     background-color: #BE008C;
 }
+#donut {
+    display: none;
+}
+.hide{
+    display: none;
+}
+#title > h3 {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .sottotitolo {
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  
+  h5 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: white;
+  }
+  
+  /* INFO RESULTS */
+  #grafico {
+    text-align: center;
+  }
+  
+  .colored {
+    color: #00FFFF;
+  }
+  
+  .results {
+    display: inline-block;
+    width: 33%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  .results p {
+    margin: 0;
+    opacity: 0.6;
+  }
+  .congrP {
+    padding-top: 10px;
+    color: white;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: normal;
+    line-height: 0.7;
+    color: white;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 3rem;
+    color: white;
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    line-height: 0.7;
+    opacity: 0.6;
+    color: white;
+  }
+  
+  form {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* BUTTON */
+  form > button {
+    border: none;
+    border: 3px solid white;
+    padding: 20px 60px;
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }

@@ -163,6 +163,8 @@ function tempoVF() {
 }
 let right = 0;
 let wrong = 0;
+let percentR = 0;
+let percentW = 0;
 let y = 0;
 
 const changeByTimer = () => {
@@ -171,6 +173,7 @@ const changeByTimer = () => {
   currentDiv[y + 3].classList.add("selected");
   wrong++;
   console.log("sbagliata", wrong);
+  console.log(percentW);
   change();
 };
 
@@ -184,9 +187,15 @@ const change = () => {
   if (y < questions.length) {
     generaDom();
   } else {
-    window.location.href = "../html.index/resultsPage.html";
     clearInterval(time);
     clearInterval(timeVF);
+    const timer = document.querySelector("#timer");
+    timer.classList.add("hide");
+    let circularProgress = document.querySelector(".circular-progress");
+    circularProgress.classList.add("hide");
+    const swit = document.querySelector("#donut");
+    swit.style.display = "block";
+    total();
   }
 };
 
@@ -200,9 +209,13 @@ const selected = (e) => {
   console.log(a);
   if (element === a) {
     right++;
+    percentR = ((right / 10) * 100).toFixed(0);
     console.log("giusta", right);
+    console.log(percentR);
   } else {
     wrong++;
+    percentW = ((wrong / 10) * 100).toFixed(0);
+    console.log(percentW);
     console.log("sbagliata", wrong);
   }
 
@@ -240,6 +253,76 @@ const generaDom = () => {
 
   main.appendChild(div);
 };
+
+const total = () => {
+  if (right >= 6) {
+    generate();
+  } else {
+    generate();
+  }
+};
+
+const generate = () => {
+  //   BLOCCO CENTRALE
+
+  const grafic = document.querySelector("#grafico");
+  const block = document.createElement("div");
+  block.classList.add("results");
+  const correct = document.createElement("h2");
+  correct.innerText = "Correct";
+  const percent = document.createElement("h3");
+  percent.innerText = `${percentR}%`;
+  const questions = document.createElement("h4");
+  questions.innerText = `${right}/10 questions`;
+  block.appendChild(correct);
+  block.appendChild(percent);
+  block.appendChild(questions);
+
+  // CIAMBELLA
+  const block1 = document.createElement("div");
+  block1.classList.add("results");
+  const container = document.createElement("div");
+  container.classList.add("container-big");
+  const circular = document.createElement("div");
+  circular.classList.add("cirucular");
+  const result = document.createElement("h5");
+  result.innerText = "Congratulations";
+  const coloredH5 = document.createElement("h5");
+  coloredH5.classList.add("colored");
+  coloredH5.innerText = "You passed the exam.";
+  const info = document.createElement("p");
+  info.innerText =
+    "We'll send you the certificate in few minutes.Check your email (including promotions / spam folder)";
+  info.classList.add("congrP");
+  circular.appendChild(result);
+  circular.appendChild(coloredH5);
+  circular.appendChild(info);
+  container.appendChild(circular);
+  block1.appendChild(container);
+
+  const block2 = document.createElement("div");
+  block2.classList.add("results");
+  const noCorrect = document.createElement("h2");
+  noCorrect.innerText = "Wrong";
+  const percent2 = document.createElement("h3");
+  percent2.innerText = `${percentW}%`;
+  const questions2 = document.createElement("h4");
+  questions2.innerText = `${wrong}/10 questions`;
+
+  block2.appendChild(noCorrect);
+  block2.appendChild(percent2);
+  block2.appendChild(questions2);
+
+  grafic.appendChild(block);
+  grafic.appendChild(block1);
+  grafic.appendChild(block2);
+};
+
+const newButton = document.querySelector("#tofeed");
+newButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  window.location.href = "./html.index/feedback.html";
+});
 
 window.onload = function () {
   generaDom();
