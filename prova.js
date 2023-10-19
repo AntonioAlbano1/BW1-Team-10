@@ -169,8 +169,10 @@ let y = 0;
 
 const changeByTimer = () => {
   const currentDiv = document.querySelectorAll("div");
-  currentDiv[y + 3].classList.add("active");
-  currentDiv[y + 3].classList.add("selected");
+  console.log(currentDiv);
+  console.log(y);
+  currentDiv[y + 6].classList.add("active");
+  currentDiv[y + 6].classList.add("selected");
   wrong++;
   console.log("sbagliata", wrong);
   console.log(percentW);
@@ -195,7 +197,7 @@ const change = () => {
     circularProgress.classList.add("hide");
     const swit = document.querySelector("#donut");
     swit.style.display = "block";
-    total();
+    generate();
   }
 };
 
@@ -254,14 +256,8 @@ const generaDom = () => {
   main.appendChild(div);
 };
 
-const total = () => {
-  if (right >= 6) {
-    generate();
-  } else {
-    generate();
-  }
-};
 
+// circularProgress.style.background = `conic-gradient(#00FFFF ${percent}deg , purple 0deg)`;
 const generate = () => {
   //   BLOCCO CENTRALE
 
@@ -285,19 +281,35 @@ const generate = () => {
   container.classList.add("container-big");
   const circular = document.createElement("div");
   circular.classList.add("cirucular");
-  const result = document.createElement("h5");
-  result.innerText = "Congratulations";
-  const coloredH5 = document.createElement("h5");
-  coloredH5.classList.add("colored");
-  coloredH5.innerText = "You passed the exam.";
-  const info = document.createElement("p");
-  info.innerText =
+  if (percentR > 60) {
+    const result = document.createElement("h5");
+    result.innerText = "Congratulations";
+    const coloredH6 = document.createElement("h6");
+    coloredH6.classList.add("colored");
+    coloredH6.innerText = "You passed the exam.";
+    const info = document.createElement("p");
+    info.innerText =
     "We'll send you the certificate in few minutes.Check your email (including promotions / spam folder)";
-  info.classList.add("congrP");
-  circular.appendChild(result);
-  circular.appendChild(coloredH5);
-  circular.appendChild(info);
-  container.appendChild(circular);
+    info.classList.add("congrP");
+    circular.appendChild(result);
+    circular.appendChild(coloredH6);
+    circular.appendChild(info);
+    container.appendChild(circular);
+  } else {
+    const result = document.createElement("h5");
+    result.innerText = "Opsss";
+    const coloredH6 = document.createElement("h6");
+    coloredH6.classList.add("colored");
+    coloredH6.innerText = "You failed the exam.";
+    const info = document.createElement("p");
+    info.innerText =
+    "We'll send you the certificate in few minutes.Check your email (including promotions / spam folder)";
+    info.classList.add("congrP");
+    circular.appendChild(result);
+    circular.appendChild(coloredH6);
+    circular.appendChild(info);
+    container.appendChild(circular);
+  }
   block1.appendChild(container);
 
   const block2 = document.createElement("div");

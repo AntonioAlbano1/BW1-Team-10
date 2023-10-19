@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: beige;
+  height: 100vh;
+  text-align: center;
+}
+.container {
+    display: inline-block;
+    width: 100%;
+    border-radius: 8px;
+    background: transparent;
+}
+.circular-progress {
+    position: relative;
+    height: 500px;
+    width: 500px;
+   margin-inline: auto;
+    border-radius: 50%;
+    background: purple;
+    display: inline-block;
+}
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    background: purple;
+    background: linear-gradient(152deg, rgba(101,37,114,1) 0%, rgba(86,30,103,1) 100%);
+    box-shadow: inset 15px 9px 50px 1px black;
+} 
+#number{
+    font-weight: 600;
+    color: #555;
+    padding-top: 50px;
+}
+

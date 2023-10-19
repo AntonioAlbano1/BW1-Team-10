@@ -155,16 +155,24 @@ span{
   h5 {
     font-size: 1.1rem;
     margin: 0;
+    padding-left: 150px;
+    padding-top: 100px;
     color: white;
+    position: relative;
   }
   
   /* INFO RESULTS */
   #grafico {
     text-align: center;
+    height: 400px;
   }
   
   .colored {
     color: #00FFFF;
+    padding-left: 90px;
+    position: relative;
+    font-size: 1.1rem;
+    margin: 0;
   }
   
   .results {
@@ -172,14 +180,19 @@ span{
     width: 33%;
     margin-bottom: 50px;
     margin-top: 50px;
+    vertical-align: middle;
   }
   .results p {
     margin: 0;
     opacity: 0.6;
+    
   }
   .congrP {
+    width: 300px;
     padding-top: 10px;
+    padding-left: 50px;
     color: white;
+    text-align: center;
   }
   
   h2 {
@@ -221,3 +234,30 @@ span{
     color: white;
     cursor: pointer;
   }
+
+  .container-big {
+    margin-left: 0px;
+    width: 100px;
+    border-radius: 8px;
+    background: transparent;
+  }
+  .cirucular {
+    position: relative;
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    background: #ededed;
+    text-align: left;
+}
+.cirucular::before {
+    content: "";
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    margin-left: 25px;
+    margin-top: 25px;
+    border-radius: 50%;
+    background: purple;
+    background: linear-gradient(152deg, rgba(101,37,114,1) 0%, rgba(86,30,103,1) 100%);
+    box-shadow: inset 15px 9px 50px 1px black;
+} 
