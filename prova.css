@@ -30,20 +30,21 @@ font-family: 'Outfit', sans-serif;
 
 .img {
     width: 200px;
-    padding-top: 50px;
+    margin-top: 50px;
 }
 
 h1 {
     color: white;
     font-weight: 300;
     text-align: center;
-    padding-top: 80px;
+    margin-top: 40px;
     font-size: 2.5rem;
 }
 
 #general{
     display: inline-block;
-    margin-left: 870px ;
+    text-align:start;
+    margin-left: 450px;
 }
 
 .container {
@@ -51,12 +52,12 @@ h1 {
     width: 100px;
     border-radius: 8px;
     background: transparent;
-    margin-inline: auto;
 }
 .circular-progress {
     position: relative;
     height: 150px;
     width: 150px;
+    margin-left: 200px;
     border-radius: 50%;
     background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
     display: inline-block;
@@ -66,7 +67,7 @@ h1 {
     position: absolute;
     height: 115px;
     width: 115px;
-    margin-left: 17px;
+    margin-left:17px;
     margin-top: 17px;
     border-radius: 50%;
     background-color: white;
@@ -83,7 +84,7 @@ h1 {
     border: none;
     color: white;
     border-radius: 50px;
-    width: 370px;
+    width: 46%;
     margin: 16px;
     font-weight: bold;
     height: 70px;
@@ -96,7 +97,7 @@ h1 {
 }
 
 .btn {
-    margin-left: 100px;
+    margin-inline: auto;
 }
 
 footer {
