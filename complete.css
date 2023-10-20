@@ -5,14 +5,15 @@
 *::before {
   box-sizing: border-box;
 }
+
 body {
     margin: 0;
     background-image: url(../Assets/bg.jpg); 
     background-repeat: no-repeat;
     background-size: cover;
 font-family: 'Outfit', sans-serif;
-
 }
+
 #onlyHeader {
     width: 1000px;
     margin-inline: auto;
@@ -22,6 +23,142 @@ font-family: 'Outfit', sans-serif;
     width: 200px;
   }
 
+#onlyMainFp {
+    width: 1000px;
+    margin-inline: auto;
+}
+
+
+.titleDiv { 
+    padding-top: 40px;
+}
+
+.firstPageh1 {
+    color: white;
+    font-weight: 300;
+    font-size: 80px;
+    line-height: 0.8;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.firstPageh1 span {
+    font-weight: 700;
+    display: block;
+}
+
+.firstPageh2 {
+    color: #C2128D;
+    font-size: 30px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+.centralDiv {
+    color: lightgray;
+    
+}
+
+.onlyUl > li > span {
+    font-weight: bold;
+    color: white;
+}
+
+.centralDiv p {
+    margin: auto;
+}
+
+.centralDiv ul {
+    line-height: 1.7;
+    padding-left: 25px;
+    margin-top: 40px;
+}
+
+#downDiv {
+    display: inline;
+}
+
+.lastId  {
+    margin-top: 80px;
+    display: inline;
+}
+
+.lastId p {
+    display: inline;
+   
+}
+
+#lastButton:disabled { 
+    margin-inline: auto;
+    border: none;
+    padding: 15px 50px;
+    background-color: grey;
+    box-shadow: -1px -1px 40px -5px grey; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+#lastButton { 
+    margin-inline: auto;
+    border: none;
+    padding: 15px 50px;
+    background-color: #00ffff;
+    box-shadow: -1px -1px 40px -5px #00FFFF; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.buttonDiv {
+    display: inline-block;
+    margin-left: 300px;
+   vertical-align: middle;
+}
+
+
+.checkbox-conteiner {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-conteiner label {
+    cursor: pointer;
+    display: flex;
+}
+
+.checkbox-conteiner input[type="checkbox"] {
+cursor: pointer;
+opacity: 0;
+position: absolute;
+}
+
+.checkbox-conteiner label::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border: .15em solid white;
+    border-radius: .15em;
+    margin-right: .5em;
+}
+
+.checkbox-conteiner input[type="checkbox"]:checked + label::before {
+    content: "\002714";
+}
+
+label {
+    color: white;
+}
+
+.bottomDiv {
+    margin-top: 50px;
+}
+ 
+/* first page */
+
 #onlyMain {
     width: 1000px;
     margin-inline: auto;
@@ -29,7 +166,7 @@ font-family: 'Outfit', sans-serif;
 }
 
 
-h1 {
+.secondPageh1 {
     color: white;
     font-weight: 300;
     text-align: center;
@@ -93,14 +230,14 @@ h1 {
     margin-inline: auto;
 }
 
-footer {
+.secondPagefooter {
     color: white;
     text-align: center;
     padding-top: 50px;
     font-weight: 600;
     font-size: 20px;
 }
-span{
+.secondPagespan{
     color: #AE1287;
 }
 
@@ -148,7 +285,7 @@ span{
   }
 
   
-  h5 {
+  .secondPageh5 {
     font-size: 1.1rem;
     margin: 0;
     padding-left: 150px;
@@ -191,7 +328,7 @@ span{
     text-align: center;
   }
   
-  h2 {
+  .secondPageh2 {
     margin: 0;
     font-size: 3rem;
     font-weight: normal;
@@ -199,13 +336,13 @@ span{
     color: white;
   }
   
-  h3 {
+  .secondPageh3 {
     margin: 0;
     font-size: 3rem;
     color: white;
   }
   
-  h4 {
+  .secondPageh4 {
     margin: 0;
     font-size: 1.5rem;
     font-weight: lighter;
@@ -214,13 +351,13 @@ span{
     color: white;
   }
   
-  form {
+  .secondPageform {
     text-align: center;
     margin-top: 50px;
   }
   
   /* BUTTON */
-  form > button {
+  .secondPageform > button {
     border: none;
     border: 3px solid white;
     padding: 20px 60px;
@@ -257,3 +394,4 @@ span{
     background: linear-gradient(152deg, rgba(101,37,114,1) 0%, rgba(86,30,103,1) 100%);
     box-shadow: inset 15px 9px 50px 1px black;
 } 
+

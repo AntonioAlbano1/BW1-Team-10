@@ -3,29 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./firstPage.css" />
+
+    <link rel="stylesheet" href="../complete.css" />
     <title>Progetto settimanale</title>
   </head>
   <body>
-    <main id="onlyMain">
-      <header id="onlyHeader">
-        <img
-          class="firstPageImg"
-          src="../Assets/epicode_logo.png"
-          alt="logoEpicode"
-        />
-      </header>
+    <header id="onlyHeader">
+      <img
+        class="firstPageImg"
+        src="../Assets/epicode_logo.png"
+        alt="logoEpicode"
+      />
+    </header>
+    <main id="onlyMainFp">
       <div class="titleDiv">
-        <h1>Welcome to <span>your exam</span></h1>
+        <h1 class="firstPageh1">Welcome to <span>your exam</span></h1>
 
-        <h2>Instructions</h2>
+        <h2 class="firstPageh2">Instructions</h2>
 
         <div class="centralDiv">
           <p>
@@ -35,25 +29,27 @@
           </p>
 
           <div>
-            <ul>
+            <ul class="onlyUl">
               <li>
-                Each question is <b>timed</b> and can only be
-                <b>answered once.</b>
+                Each question is <span>timed</span> and can only be
+                <span>answered once.</span>
               </li>
               <li>
                 Changing browser tab or opening other windows will
-                <b>invalidate the question.</b>
+                <span>invalidate the question.</span>
               </li>
-              <li>This exam will take approx. <b>0-5 minutes.</b></li>
+              <li>This exam will take approx. <span>0-5 minutes.</span></li>
             </ul>
           </div>
 
-          <label>
-            <input type="checkbox" id="checkButton" /> I promise to answer
-            myself without help from anyone
-          </label>
-          <div class="buttonDiv">
-            <button id="lastButton" disabled>PROCEED</button>
+          <div class="bottomDiv">
+            <label>
+              <input type="checkbox" id="checkButton" /> I promise to answer
+              myself without help from anyone
+            </label>
+            <div class="buttonDiv">
+              <button id="lastButton" disabled>PROCEED</button>
+            </div>
           </div>
         </div>
       </div>
