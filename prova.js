@@ -119,58 +119,81 @@ window.onload = function () {
     };
     const shuffledArr = shuffle(questions[i].incorrect_answers);
     console.log(shuffledArr);
-    
   }
-  
+
   const timer = document.querySelector("#timer");
-  let times = 60;
   timer.classList.add("color");
-  
-  let time;
+
+  let time = null;
+  let timeVF = null;
   function tempo() {
-    time = setInterval(tempo, 1000);
-    let seconds = times * 1;
-    timer.innerHTML = ` ${seconds}`;
-    times--;
-    if (seconds === 0) {
-      changeByTimer();
-      clearInterval(time);
-    }
+    clearInterval(time);
+    clearInterval(timeVF);
+    let times = 60;
+    time = setInterval(() => {
+      timer.innerHTML = `${times}`;
+      times--;
+      console.log(times);
+      if (times === 0) {
+        clearInterval(time);
+        changeByTimer();
+      }
+    }, 1000);
   }
-  
-  // const changeByTimer = () => {
-  //   const currentDiv = document.querySelectorAll("div");
-  //   currentDiv[y].classList.add("active");
-  //   console.log(currentDiv);
-  //   change();
-  // };
-  
+
+  function tempoVF() {
+    clearInterval(timeVF);
+    clearInterval(time);
+    let timesVF = 30;
+    timeVF = setInterval(() => {
+      timer.innerHTML = `${timesVF}`;
+      timesVF--;
+      console.log(timesVF);
+      if (timesVF === 0) {
+        clearInterval(timeVF);
+        changeByTimer();
+      }
+    }, 1000);
+  }
+  let right = 0;
+  let wrong = 0;
+  let y = 0;
+
+  const changeByTimer = () => {
+    const currentDiv = document.querySelectorAll("div");
+    currentDiv[y + 3].classList.add("active");
+    currentDiv[y + 3].classList.add("selected");
+    console.log(currentDiv);
+    const answer = document.querySelectorAll(".selected");
+    console.log(answer);
+    wrong++;
+    console.log("sbagliata", wrong);
+    change();
+  };
+
   const change = () => {
     const currentQuestion = document.getElementsByClassName("active");
     console.log(currentQuestion[y]);
     if (y !== questions[y]) {
       currentQuestion[y].style.display = "none";
     }
+    console.log(y);
     y++;
+    console.log(y);
     if (y < questions.length) {
       generaDom();
-      tempo();
     } else {
       window.location.href = "../html.index/resultsPage.html";
     }
   };
-  
-  let right = 0;
-  let wrong = 0;
-  let y = 0;
-  
+
   const selected = (e) => {
-    e.preventDefault();
     e.currentTarget.classList.add("selected");
     e.currentTarget.parentNode.classList.add("active");
     const answer = document.querySelectorAll(".selected");
     console.log(answer);
     const a = answer[y].innerHTML;
+    console.log(y);
     console.log(y);
     const element = questions[y].correct_answer;
     console.log(a);
@@ -199,6 +222,14 @@ window.onload = function () {
       button.innerHTML = `${questions[y].incorrect_answers[j]}`;
       div.appendChild(button);
       button.addEventListener("click", selected);
+      console.log(questions[y].incorrect_answers.length);
+      if (questions[y].incorrect_answers.length === 2) {
+        tempoVF();
+        console.log("ciao1");
+      } else {
+        tempo();
+        console.log("ciao2");
+      }
     }
     const counter = document.createElement("span");
     const span = document.createElement("span");
@@ -207,9 +238,8 @@ window.onload = function () {
     counter.classList.add("numbers");
 
     div.appendChild(counter);
-    div.appendChild(span)
-    
-    
+    div.appendChild(span);
+
     main.appendChild(div);
   };
   generaDom();
