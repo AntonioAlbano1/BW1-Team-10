@@ -232,6 +232,7 @@ const generaDom = () => {
   const div = document.createElement("div");
   div.classList.add("btn");
   const quest = document.createElement("h1");
+  quest.classList.add("secondPageh1");
   quest.innerHTML = `${questions[y].question}`;
   div.appendChild(quest);
   for (let j = 0; j < questions[y].incorrect_answers.length; j++) {
@@ -252,6 +253,7 @@ const generaDom = () => {
   counter.innerHTML = `question ${y + 1}`;
   span.innerHTML = `/${questions.length}`;
   counter.classList.add("numbers");
+  span.classList.add("secondPagespan");
 
   div.appendChild(counter);
   div.appendChild(span);
@@ -266,10 +268,13 @@ const generate = () => {
   const block = document.createElement("div");
   block.classList.add("results");
   const correct = document.createElement("h2");
+  correct.classList.add("secondPageh2");
   correct.innerText = "Correct";
   const percent = document.createElement("h3");
+  percent.classList.add("secondPageh3");
   percent.innerText = `${percentR}%`;
   const questions = document.createElement("h4");
+  questions.classList.add("secondPageh4");
   questions.innerText = `${right}/10 questions`;
   block.appendChild(correct);
   block.appendChild(percent);
@@ -284,6 +289,7 @@ const generate = () => {
   circular.classList.add("cirucular");
   if (percentR >= 60) {
     const result = document.createElement("h5");
+    result.classList.add("secondPageh5");
     result.innerText = "Congratulations";
     const coloredH6 = document.createElement("h6");
     coloredH6.classList.add("colored");
@@ -298,6 +304,7 @@ const generate = () => {
     container.appendChild(circular);
   } else {
     const result = document.createElement("h5");
+    result.classList.add("secondPageh5W");
     result.innerText = "Opsss";
     const coloredH6 = document.createElement("h6");
     coloredH6.classList.add("colored");
@@ -316,10 +323,13 @@ const generate = () => {
   const block2 = document.createElement("div");
   block2.classList.add("results");
   const noCorrect = document.createElement("h2");
+  noCorrect.classList.add("secondPageh2");
   noCorrect.innerText = "Wrong";
   const percent2 = document.createElement("h3");
+  percent2.classList.add("secondPageh3");
   percent2.innerText = `${percentW}%`;
   const questions2 = document.createElement("h4");
+  questions2.classList.add("secondPageh4");
   questions2.innerText = `${wrong}/10 questions`;
 
   block2.appendChild(noCorrect);
@@ -335,12 +345,12 @@ const generate = () => {
 const newButton = document.querySelector("#tofeed");
 newButton.addEventListener("click", function (e) {
   e.preventDefault();
-  window.location.href = "./html.index/feedback.html";
+  window.location.href = "./feedback.html";
 });
 
 const control = () => {
   let piero = document.querySelector(".cirucular");
-  piero.style.background = `conic-gradient(purple ${
+  piero.style.background = `conic-gradient(#C2128D ${
     percentW * 3.6
   }deg , #00FFFF 0deg)`;
   console.dir(piero);
