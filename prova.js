@@ -174,6 +174,7 @@ const changeByTimer = () => {
   currentDiv[y + 6].classList.add("active");
   currentDiv[y + 6].classList.add("selected");
   wrong++;
+  percentW = ((wrong / 10) * 100).toFixed(0);
   console.log("sbagliata", wrong);
   console.log(percentW);
   change();
@@ -191,6 +192,8 @@ const change = () => {
   } else {
     clearInterval(time);
     clearInterval(timeVF);
+    const general = document.querySelector(".general");
+    general.classList.add("hide");
     const timer = document.querySelector("#timer");
     timer.classList.add("hide");
     let circularProgress = document.querySelector(".circular-progress");
@@ -256,8 +259,6 @@ const generaDom = () => {
   main.appendChild(div);
 };
 
-
-// circularProgress.style.background = `conic-gradient(#00FFFF ${percent}deg , purple 0deg)`;
 const generate = () => {
   //   BLOCCO CENTRALE
 
@@ -281,7 +282,7 @@ const generate = () => {
   container.classList.add("container-big");
   const circular = document.createElement("div");
   circular.classList.add("cirucular");
-  if (percentR > 60) {
+  if (percentR >= 60) {
     const result = document.createElement("h5");
     result.innerText = "Congratulations";
     const coloredH6 = document.createElement("h6");
@@ -289,7 +290,7 @@ const generate = () => {
     coloredH6.innerText = "You passed the exam.";
     const info = document.createElement("p");
     info.innerText =
-    "We'll send you the certificate in few minutes.Check your email (including promotions / spam folder)";
+      "We'll send you the certificate in few minutes.Check your email (including promotions / spam folder)";
     info.classList.add("congrP");
     circular.appendChild(result);
     circular.appendChild(coloredH6);
@@ -303,7 +304,7 @@ const generate = () => {
     coloredH6.innerText = "You failed the exam.";
     const info = document.createElement("p");
     info.innerText =
-    "We'll send you the certificate in few minutes.Check your email (including promotions / spam folder)";
+      "We'll send you the certificate in few minutes.Check your email (including promotions / spam folder)";
     info.classList.add("congrP");
     circular.appendChild(result);
     circular.appendChild(coloredH6);
@@ -328,6 +329,7 @@ const generate = () => {
   grafic.appendChild(block);
   grafic.appendChild(block1);
   grafic.appendChild(block2);
+  control();
 };
 
 const newButton = document.querySelector("#tofeed");
@@ -335,6 +337,14 @@ newButton.addEventListener("click", function (e) {
   e.preventDefault();
   window.location.href = "./html.index/feedback.html";
 });
+
+const control = () => {
+  let piero = document.querySelector(".cirucular");
+  piero.style.background = `conic-gradient(purple ${
+    percentR * 3.6
+  }deg , #00FFFF 0deg)`;
+  console.dir(piero);
+};
 
 window.onload = function () {
   generaDom();

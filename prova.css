@@ -41,7 +41,7 @@ h1 {
     font-size: 2.5rem;
 }
 
-#general{
+.general{
     display: inline-block;
     text-align:start;
     margin-left: 450px;
@@ -133,7 +133,7 @@ span{
     display: none;
 }
 .hide{
-    display: none;
+   display: none;
 }
 #title > h3 {
     color: white;
