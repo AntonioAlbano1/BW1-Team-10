@@ -341,7 +341,7 @@ newButton.addEventListener("click", function (e) {
 const control = () => {
   let piero = document.querySelector(".cirucular");
   piero.style.background = `conic-gradient(purple ${
-    percentR * 3.6
+    percentW * 3.6
   }deg , #00FFFF 0deg)`;
   console.dir(piero);
 };
