@@ -153,6 +153,31 @@ label {
   margin-top: 50px;
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  font-size: 15px;
+  color: rgb(253, 253, 253);
+  display: none;
+}
+
+input[type="checkbox"]:checked:after {
+  display: inline-block;
+}
+
 /* first page */
 
 #onlyMain {
